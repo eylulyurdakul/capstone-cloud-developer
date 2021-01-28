@@ -1,52 +1,19 @@
-# Serverless TODO with Image Upload Functionality
+# Serverless Item Storage Application with Image Upload Functionality
 
 # Functionality of the application
 
-This application will allow creating/removing/updating/fetching TODO items. Each TODO item has an attachment image. Each user only has access to TODO items that he/she has created.
+This application will allow creating/removing/updating/fetching items. Each item has an attachment image. Each user only has access to items that he/she has created.
 
-# TODO items
+# Items
 
-The application should store TODO items, and each TODO item contains the following fields:
+The application should store items, and each item contains the following fields:
 
 * `todoId` (string) - a unique id for an item
 * `createdAt` (string) - date and time when an item was created
-* `name` (string) - name of a TODO item (e.g. "Change a light bulb")
+* `name` (string) - name of an item (e.g. "Change a light bulb")
 * `dueDate` (string) - date and time by which an item should be completed
 * `done` (boolean) - true if an item was completed, false otherwise
-* `attachmentUrl` (string) - a URL pointing to an image attached to a TODO item
-
-# Functions to be implemented
-
-The following functions are implemented and configured in the `serverless.yml` file:
-
-* `Auth` - this function implements a custom authorizer for API Gateway that should be added to all other functions.
-
-* `GetTodos` - returns all TODOs for a current user. A user id is extracted from a JWT token that is sent by the frontend
-
-It returns data that looks like this:
-
-```json
-{
-  "items": [
-    {
-      "todoId": "123",
-      "createdAt": "2019-07-27T20:01:45.424Z",
-      "name": "Buy milk",
-      "dueDate": "2019-07-29T20:01:45.424Z",
-      "done": false,
-      "attachmentUrl": "http://example.com/image.png"
-    },
-    {
-      "todoId": "456",
-      "createdAt": "2019-07-27T20:01:45.424Z",
-      "name": "Send a letter",
-      "dueDate": "2019-07-29T20:01:45.424Z",
-      "done": true,
-      "attachmentUrl": "http://example.com/image.png"
-    },
-  ]
-}
-```
+* `attachmentUrl` (string) - a URL pointing to an image attached to an item
 
 Necessary resources are added to the `resources` section of the `serverless.yml` file such as DynamoDB table and S3 bucket.
 
